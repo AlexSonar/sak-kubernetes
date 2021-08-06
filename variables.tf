@@ -123,12 +123,16 @@ variable "on_demand_common_desired_capacity" {
 
 variable "on_demand_common_instance_type" {
   description = "EC2 on_demand Instance type"
-  default     = "m5.large"
+  # default     = "m5.large"
+  # default     = "m3.medium"
+  default     = "t3.small"
 }
 
 variable "on_demand_common_override_instance_types" {
   description = "EC2 on_demand override instance types"
-  default     = ["m5.large", "m5.xlarge", "m5.2xlarge"]
+  # default     = ["m5.large", "m5.xlarge", "m5.2xlarge"]
+  # default     = ["m3.medium", "m3.medium", "m3.medium"]
+  default     = ["t3.small", "t3.medium", "t3.large"]
 }
 
 variable "on_demand_common_allocation_strategy" {
@@ -227,12 +231,17 @@ variable "on_demand_cpu_desired_capacity" {
 
 variable "on_demand_cpu_instance_type" {
   description = "EC2 on_demand Instance type"
-  default     = "c5.xlarge"
+  # default     = "c5.xlarge"
+  # default     = "m3.medium"
+  default     = "t3.small"
 }
 
 variable "on_demand_cpu_override_instance_types" {
   description = "EC2 on_demand Instance type"
-  default     = ["c5.xlarge", "c5.2xlarge", "c5n.xlarge"]
+  # default     = ["c5.xlarge", "c5.2xlarge", "c5n.xlarge"]
+  # default     = ["m3.medium", "m3.medium", "m3.medium"]
+  # default     = ["t3.small", "t3.small", "t3.small"]
+  default     = ["t3.small", "t3.medium", "t3.large"]
 }
 
 variable "on_demand_cpu_allocation_strategy" {

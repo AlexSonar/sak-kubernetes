@@ -1,12 +1,14 @@
-data "aws_ami" "eks_gpu_worker" {
-  filter {
-    name   = "name"
-    values = ["amazon-eks-gpu-node-${var.cluster_version}-*"]
-  }
+# data "aws_ami" "eks_gpu_worker" {
+#   filter {
+#     name   = "name"
+#     values = ["amazon-eks-gpu-node-${var.cluster_version}-*"]
+#   }
 
-  most_recent = true
-  owners      = ["602401143452"] // The ID of the owner of the official AWS EKS AMIs.
-}
+#   most_recent = true
+#   // # owners      = ["602401143452"] // The ID of the owner of the official AWS EKS AMIs.
+#   owners      = ["641456973426"] // The ID of the owner of the official AWS EKS AMIs.
+
+# }
 
 
 module "eks" {
@@ -46,7 +48,8 @@ module "eks" {
   #
   #   After that autoscaler is able to see the resources on that ASG.
   #
-  worker_groups_launch_template = concat(local.common, local.cpu, local.gpu)
+  worker_groups_launch_template = concat(local.common, local.cpu)
+  # worker_groups_launch_template = concat(local.common, local.cpu, local.gpu)
 }
 
 # OIDC cluster EKS settings
